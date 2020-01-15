@@ -15,7 +15,7 @@ public class p12
     double ef = readInRange("EF? ", 0.0, 20.0);
     double nf;
 
-    //...
+    nf = pg1*0.3 + pg2*0.3 + tpi*0.3 + ef*0.1;
 
     out.printf("NF = %.1f\n", nf);
     if (nf < 9.5)
@@ -31,7 +31,8 @@ public class p12
   {
     assert min <= max : "max must be at least as large as min!";
     double value;
-    //...
+    out.print(prompt);
+    value = in.nextDouble();
     return value;
   }
 }
