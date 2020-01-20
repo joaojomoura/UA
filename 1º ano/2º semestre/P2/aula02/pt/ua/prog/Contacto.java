@@ -1,4 +1,4 @@
-
+package pt.ua.prog;
 
 public class Contacto {
   private String nome;
@@ -16,8 +16,7 @@ public class Contacto {
     email = mail;
   }
 
-
-public String eMail () {
+  public String eMail () {
     return email;
   }
 

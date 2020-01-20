@@ -1,4 +1,4 @@
-
+package UA.testeclass;
 
 public class Contacto {
   private String nome;
@@ -6,18 +6,17 @@ public class Contacto {
   private String email;
 
   public Contacto (String name, String phone) {
-    nome = name.toUpperCase();
+    nome = name;
     telefone = phone;
   }
 
   public Contacto (String name, String phone, String mail) {
-    nome = name.toUpperCase();
+    nome = name;
     telefone = phone;
     email = mail;
   }
 
-
-public String eMail () {
+  public String eMail () {
     return email;
   }
 
