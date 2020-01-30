@@ -36,6 +36,7 @@ public class TestTarefa1 {
       // Cada linha tem 2 datas e um texto, separadas por TAB ("\t")
       // Use o método split para separar os elementos e colocá-los num array p
       //...
+      String p [] = line.split("\t");
       Data ini = new Data(p[0]);
       Data fim = new Data(p[1]);
       tasks[n] = new Tarefa(ini, fim, p[2]);
