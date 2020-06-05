@@ -21,7 +21,7 @@ public class TestTarefa2 {
     }
     out.println(t);
   
-    //t = new Tarefa(halloween, christmas, ""); // should fail!
+    t = new Tarefa(halloween, christmas, ""); // should fail!
     out.println(t);
   
     out.println("Class Tarefa passed all tests.");

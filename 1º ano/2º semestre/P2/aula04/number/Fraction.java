@@ -13,10 +13,12 @@ package number;
  * 2007--2018
  */
 
-public class Fraction
+public class Fraction implements Comparable <Fraction>
 {
   private int num;
   private int den;
+  public final static Fraction ZERO = new Fraction(0,1);
+  public final static Fraction ONE = new Fraction(1,1);
 
   /** Cria uma nova fracção a partir de um par (numerador, denominador).
    *  @param num numerador da nova fracção.
@@ -25,6 +27,10 @@ public class Fraction
    */
   public Fraction(int num, int den) {
     assert den != 0; // check precondition
+    if(den < 0) {
+      num = -num;
+      den = -den;
+    }
     this.num = num;
     this.den = den;
     assert invariant(); // check object invariant
@@ -35,7 +41,7 @@ public class Fraction
    * É para testar em asserções nos métodos.
    */
   public boolean invariant() {
-    return den != 0;   // O denominador não pode ser nulo!
+    return den > 0;   // O denominador não pode ser nulo!
   }
 
   /** Converte uma string numa fracção.
@@ -47,8 +53,7 @@ public class Fraction
     String[] p = str.split("/", 2);  // divide a string em até 2 partes
     int n = Integer.parseInt(p[0]);  // extrai numerador
     int d = (p.length==2)? Integer.parseInt(p[1]) : 1;
-        // se tem 2 partes, extrai denominador, senão fica d=1
-    if (d == 0) return null;
+      // se tem 2 partes, extrai denominador, senão fica d=1
     return new Fraction(n, d);
   }
 
@@ -58,10 +63,9 @@ public class Fraction
   public String toString() {
     // Com um invariante mais forte, podemos simplificar este método!
     String s;
-    if (den > 0)
-      s = num + "/" + den;
-    else
-      s = (-num) + "/" + (-den);
+    
+    s = num + "/" + den;
+    assert invariant();
     return s;
   }
 
@@ -73,7 +77,7 @@ public class Fraction
   /** Devolve o denominador da fracção.
    *  @return denominador desta fração.
    */
-  public int den() { return den; }
+  public int den() {  return den; }
 
   /** Multiplica esta fracção por outra (this * b).
    *  @param b multiplicando.
@@ -82,6 +86,7 @@ public class Fraction
   public Fraction multiply(Fraction b) {
     int n = num*b.num;
     int d = den*b.den;
+    assert (invariant());
     Fraction p = new Fraction(n, d); // product
     return p;
   }
@@ -93,24 +98,43 @@ public class Fraction
   public Fraction add(Fraction b) {
     int n = num*b.den + den*b.num;
     int d = den*b.den;
+    assert (invariant());
+    assert n - num*b.den == den*b.num;
     Fraction s = new Fraction(n, d); // sum
     return s;
   }
 
   public Fraction divide(Fraction b) {
-    //...
+    assert b.num != 0;
+    int n = num * b.den;
+    int d = den * b.num;
+    assert invariant();
+    assert n / num == b.den;
+    assert d / b.num == den;
+    Fraction s = new Fraction(n, d);
+    return s;
   }
 
   public Fraction subtract(Fraction b) {
-    //...
+    int n = num*b.den - den*b.num;
+    int d = den*b.den;
+    assert (invariant());
+    assert num*b.den == n + den*b.num;
+    Fraction s = new Fraction(n, d); 
+    return s;
   }
 
   public boolean equals(Fraction b) {
-    //...
+    return (double)b.num/(double)b.den == (double)num/(double)den;
   }
 
   public int compareTo(Fraction b) {
-    //...
+    if(this.equals(b))
+      return 0;
+    if(((double)num/(double)den - (double)b.num/(double)b.den) > 0)
+      return 1;
+    return -1;
   }
+
 
 }

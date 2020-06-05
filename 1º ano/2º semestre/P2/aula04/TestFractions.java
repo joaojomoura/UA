@@ -26,7 +26,7 @@ public class TestFractions {
     assert (x.add(x2)).equals( two.multiply(x) ) : "Should satisfy x+x2 == 2*x";
     
     // Uncomment code blocks progressively to perform more and more tests...
-    /*------
+    
     out.println("Testing compareTo...");
     assert x.compareTo(x2) == 0;
     // Verificar que x < z equivale a z > x:
@@ -60,15 +60,17 @@ public class TestFractions {
     
     // Comutatividade da adição:
     assert x.add(y).equals( y.add(x) ) : "x+y == y+x";
-    
+    assert (x.add(y)).add(x2).equals(x.add((y.add(x2))));
     // Acrescente testes da comutatividade, associatividade e distributividade
-    //...
+    assert x.multiply(y).equals(y.multiply(x));
+    assert (x.multiply(y)).multiply(x2).equals(x.multiply((y.multiply(x2))));
+    
     
     out.println("Testing complex expressions...");
     assert two.equals( Fraction.ONE.add(Fraction.ONE).subtract(Fraction.ZERO) );  // 2 == 1+1-0
     assert x.add(x2).divide(two).subtract(x).equals(Fraction.ZERO): "Should satisfy (x+x2)/2 - x == 0";
     
-    ------*/
+    
     
     out.println("All tests OK.");
   }
