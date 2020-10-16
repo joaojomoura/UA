@@ -1,0 +1,10 @@
+	.data
+nome_frase:	.asciiz "Hello World"
+
+	.text
+	.globl main
+	
+main:	la	$a0,nome_frase
+	ori	$v0,$0,4	# $v0 -> printstr
+	syscall			# print str
+	jr	$ra 	

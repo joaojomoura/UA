@@ -1,5 +1,5 @@
 import static java.lang.System.*;
-// Falta aqui qualquer coisa...
+import java.util.Scanner;
 
 /**
  * Programa simples de impressão da chave do Totoloto.

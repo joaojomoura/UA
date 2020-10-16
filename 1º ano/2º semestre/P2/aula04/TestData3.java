@@ -31,7 +31,7 @@ public class TestData3 {
     d = new Data();
     out.println(d);
     // avança 400 anos, dia-a-dia:
-    for (int n = 0; n < 400*365+100*1-3; n++) {
+    for (int n = 0; n < 400*365+100; n++) {
       d.seguinte();
     }
     out.println(d);

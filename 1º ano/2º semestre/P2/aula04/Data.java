@@ -155,6 +155,8 @@ public class Data {
   public void seguinte() {
     if(bissexto(ano))
       diasMesComum[1] = 29;
+    else
+      diasMesComum[1] = 28;
     
     if(dia == diasMesComum[mes-1] && mes < 12){
       dia = 1;

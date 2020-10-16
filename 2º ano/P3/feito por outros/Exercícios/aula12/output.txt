@@ -1,0 +1,102 @@
+acontecia={saindo=1}
+afastada={januã¡rio=1}
+algumas={frutas=1}
+anos={que=1}
+apariã={astro=1}
+arsenal={guerra=1}
+assim={tomava=1}
+astro={eclipse=1}
+aã­={pelas=1}
+barreto={primeira=1}
+bateu={casa=1}
+bem={exatamente=1}
+bonde={sem=1}
+bongava={pelas=1}
+capitã={clã¡udio=1}
+casa={capitã=1, numa=1, ã s=1}
+clã¡udio={onde=1}
+como={fosse=1, hã¡bito=1}
+comprava={queijo=1}
+confeitarias={algumas=1}
+conhecia={hã¡bitos=1}
+conhecido={por=1}
+costume={jantar=1}
+criada={œalice=1}
+determinado={previsto=1}
+dona={gritava=1}
+eclipse={enfim=1}
+enfim={fenã´meno=1}
+era={costume=1, subsecretã¡rio=1}
+erro={minuto=1}
+exatamente={ã s=1}
+fenã´meno={matematicamente=1}
+fim={policarpo=1}
+forma={que=1}
+fosse={apariã=1}
+francesa={gastava=1}
+frutas={comprava=1}
+gastava={nesses=1}
+gritava={criada=1}
+guerra={onde=1}
+havia={mais=1}
+hora={forma=1}
+horas={o=1}
+hã¡bito={policarpo=1}
+hã¡bitos={tanto=1}
+isso={acontecia=1}
+jantar={aã­=1}
+januã¡rio={bem=1}
+jã¡={lhe=1}
+lhe={conhecia=1}
+lima={barreto=1}
+liã‡ãƒo={violãƒo=1}
+logo={que=1}
+mais={conhecido=1, vinte=1}
+major={quaresma=1}
+matematicamente={determinado=1}
+meia={logo=1}
+mesmo={uma=1}
+minuto={pisar=1}
+nem={mesmo=1}
+nesses={passos=1}
+numa={rua=1}
+olha={que=1}
+onde={era=2}
+padaria={francesa=1}
+parte={liã‡ãƒo=1}
+passar={dona=1}
+passos={nem=1}
+pelas={confeitarias=1, quatro=1}
+pisar={soleira=1}
+policarpo={quaresma=2}
+por={assim=1, major=1}
+porta={sua=1}
+predito={vizinhanã=1}
+previsto={predito=1}
+primeira={parte=1}
+quarenta={por=1}
+quaresma={bateu=1, lima=1, mais=1}
+quatro={meia=1, quinze=2}
+que={casa=1, horas=1, isso=1, viam=1, ã s=1}
+queijo={ã s=1}
+quinze={como=1, tarde=1}
+rua={afastada=1}
+saindo={arsenal=1}
+sem={erro=1}
+sempre={padaria=1}
+soleira={porta=1}
+sua={casa=1}
+subsecretã¡rio={bongava=1}
+tanto={que=1}
+tarde={havia=1}
+tomava={bonde=1}
+trãªs={quarenta=1}
+uma={hora=1}
+vezes={sempre=1}
+viam={passar=1}
+vinte={anos=1}
+violãƒo={como=1}
+vizinhanã={jã¡=1}
+¿triste={fim=1}
+ã s={quatro=2, trãªs=1, vezes=1}
+œalice={olha=1}

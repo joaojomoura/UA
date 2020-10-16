@@ -1,0 +1,4 @@
+
+exemplo de um documento que vai ser lido
+o programa vai contar o número total de palavras e o número de palavras diferentes
+contidas neste documento
