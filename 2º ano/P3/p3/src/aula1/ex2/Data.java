@@ -46,7 +46,7 @@ public class Data {
 	
 	/** Indica se ano é bissexto. */
 	private static boolean bissexto(int ano) {
-	    return ano%4 == 0 && ano%100 != 0 || ano%400 == 0;
+	    return ((ano%4 == 0 && ano%100 != 0) || ano%400 == 0);
 	}
 	
 	
@@ -55,18 +55,23 @@ public class Data {
 		//validaçao do mes
 		if(mes <= 0 || mes > 12)
 			throw new RuntimeException("Mes invalido");
+		
 		//validaçao do dia
 		else if (bissexto(ano) && diasMesComum[mes-1] < dia || dia < 0)
 			throw new RuntimeException("Dia Invalido");
+
 		
-		else if (bissexto(ano) && mes != 2 && diasMesComum[mes-1] < dia 
-				|| dia < 0 || diasMesComum[1] - 1 < dia )
+		else if (!bissexto(ano) && mes != 2 && diasMesComum[mes-1] < dia 
+				|| dia < 0) 
 			throw new RuntimeException("Dia Invalido");
+		else if (!bissexto(ano) && mes == 2 && diasMesComum[1]-1 < dia || dia < 0)
+			throw new RuntimeException("Dia Invalido");
+		
 		//validaçao do ano
 		else if(ano < 0)
 			throw new RuntimeException("Ano invalido");	
 	  }
-	
+	@Override
 	public String toString() {
 		return dia + "/" + mes + "/" + ano;
 	}
