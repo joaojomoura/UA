@@ -37,21 +37,21 @@ public class Menu {
 					case 2:
 						Person_list.showList();
 						break;
-//					case 3:
-//						out.print("Numero de cc da pessoa a remover: ");
-//						int toremove = in.nextInt();
-//						list_person.removePerson(toremove);
-//						break;
-//					case 4:
-//						out.println("Ordenar por cc");
-//						list_person.sortByCC();
-//						list_person.showList();
-//						break;
-//					case 5:
-//						out.println("Ordenar por nome");
-//						list_person.sortByName();
-//						list_person.showList();
-//						break;
+					case 3:
+						out.print("Numero de cc da pessoa a remover: ");
+						int toremove = in.nextInt();
+						Person_list.remove_Person(Person_list.get_person_by_cc(toremove));
+						break;
+					case 4:
+						out.println("Ordenar por cc");
+						Person_list.sort_by_cc();
+						Person_list.showList();
+						break;
+					case 5:
+						out.println("Ordenar por nome");
+						Person_list.sort_by_name();
+						Person_list.showList();
+						break;
 					case 6:
 						menu();
 						break;

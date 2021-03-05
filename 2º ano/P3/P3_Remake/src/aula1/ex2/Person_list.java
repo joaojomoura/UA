@@ -5,8 +5,13 @@ package aula1.ex2;
 
 import static java.lang.System.out;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -16,7 +21,7 @@ import java.util.Set;
  */
 public class Person_list {
 	static Scanner in = new Scanner(System.in);
-	private static Set <Pessoa> list = new HashSet<>();;
+	private static List <Pessoa> list = new ArrayList<>();;
 	
 	
 	public static Data user_data() {
@@ -65,7 +70,8 @@ public class Person_list {
 	}
 	public static void add_Person(Pessoa p) {
 		
-		if(list.add(p)) {
+		if(!list.contains(p)) {
+			list.add(p);
 			System.out.println("Inserido!");
 		}
 		else
@@ -75,7 +81,25 @@ public class Person_list {
 	public static void showList() {
 		Iterator<Pessoa> i= list.iterator();
 		while(i.hasNext())
-			System.out.println(i.next());
+			out.println(i.next());
+	}
+	public static Pessoa get_person_by_cc(int cc) {
+		Optional<Pessoa> p= list.stream()
+				.filter(person -> cc ==(person.getCc()))
+				.findAny();
+		return p.get();
+	}
+	
+	public static void remove_Person(Pessoa p) {
+		if(list.remove(p))
+			out.println("Removido");
+	}
+	
+	public static void sort_by_name() {
+		list.sort(Comparator.comparing(Pessoa::getName));
+	}
+	public static void sort_by_cc() {
+		list.sort(Comparator.comparing(Pessoa::getCc));
 	}
 
 }
