@@ -27,9 +27,7 @@ main:
         li      $a0, 100            #   $a0 = 10Hz
         jal		delay				#   delay($a0)
         addi    $t0,$t0,1           #   helper++
-        li      $a0, '\r'
-        li      $v0, putChar
-        syscall                     #   putChar('\r')
+        
 
         rem     $t1, $t0, 10         #   t1 = helper % 10
         rem     $t2, $t0, 2          #   t2 = helper % 2
@@ -40,8 +38,10 @@ main:
             li      $a1, 0x0005000A
             li      $v0, printInt
             syscall                     #   printInt(++cnt10, 10 | 5 <<16)
+            li      $a0, '\r'
+            li      $v0, putChar
+            syscall                     #   putChar('\r')
 
-        
         if5:
             bnez     $t2,else         #   if(t2 == 0)
             addi    $s1, $s1, 1         #   cnt5++;
@@ -49,14 +49,22 @@ main:
             li      $a1, 0x0005000A
             li      $v0, printInt
             syscall                     #   printInt(++cnt5, 10 | 5 <<16)
+            li      $a0, '\r'
+            li      $v0, putChar
+            syscall                     #   putChar('\r')
+        
         else:
-
             addi    $s0, $s0, 1         #   cnt1++;
             move    $a0, $s0
             li      $a1, 0x0005000A
             li      $v0, printInt
             syscall                     #   printInt(++cnt1, 10 | 5 <<16)
+            li      $a0, '\r'
+            li      $v0, putChar
+            syscall                     #   putChar('\r')
         j       while				# }
+
+
     lw          $ra, 0($sp)
     lw          $s0, 4($sp)
     lw          $s1, 8($sp)
