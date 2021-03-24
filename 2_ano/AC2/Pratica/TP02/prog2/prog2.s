@@ -9,13 +9,15 @@
 #Mapa de registos
 # $s0 = counter
 main:
-    addiu        $sp,$sp, -8
+    addiu       $sp,$sp, -8
     sw          $ra, 0($sp)
     sw          $s0, 4($sp)
 
     li			$s0, 0				# counter = 0 
     while:                          # while(1) {
         li      $a0, 100            #   $a0 = 10Hz
+#       li      $a0, 200            #   $a0 = 5Hz
+#       li      $a0, 1000           #   $a0 = 1Hz
         jal		delay				#   delay($a0)
         addi    $s0, $s0, 1         #   counter++;
         move    $a0, $s0
@@ -34,10 +36,6 @@ main:
 
 
 
-
-
-
-
 # Mapa de Registos delay - k = 20000
 # a0 = ms
 delay:
@@ -48,7 +46,7 @@ delay:
         whiled:
             li   $v0,readCoreTimer #
             syscall                #    v0 = readCoreTimer()
-            bge  $v0, 20000, whiled#    while(readCoreTimer() < k);
+            ble  $v0, 20000, whiled#    while(readCoreTimer() < k);
         addi     $a0, $a0, -1      #    ms--;
         j		 for				# }
 endf:
