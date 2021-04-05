@@ -47,7 +47,7 @@ public class Ex2 {
             System.out.println("Op1 (+,-,*,/) Op2");
         }while(sc.hasNextLine());
      }
-
+     
      public static void atr(String [] s){
         if(s.length >= 3){
             if(s[1].equals('=')){
