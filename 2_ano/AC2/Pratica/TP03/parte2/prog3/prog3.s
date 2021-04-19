@@ -50,7 +50,7 @@ main:
             andi        $s1, $s1, 0xFFF0        # extrair bit 0-3
             or          $s1, $s1, $s2           # colocar o valor de cont nos bits 0-3
             sw          $s1, LATE($s0)          # escrever valor saida
-            li          $a0, 500               
+            li          $a0, 1000              
             jal         delay                   #delay(500) 2Hz
             j			loop
     

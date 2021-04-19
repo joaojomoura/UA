@@ -24,7 +24,7 @@ main:
 
     lui         $s0, SFR_BASE_HI
     #porto saida
-    lw			$s1, TRISE($t1)			# READ (Mem_adr = 0xBF880000 + 0x6100)
+    lw			$s1, TRISE($s0)			# READ (Mem_adr = 0xBF880000 + 0x6100)
     andi        $s1, $s1, 0xFFF0        # Modify bit 0 a 3 = 0
     sw			$s1, TRISE($s0)			# Write Trise(0) = 0
     
