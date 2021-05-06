@@ -1,4 +1,4 @@
-// Generated from SuffixCalculator.g4 by ANTLR 4.9.2
+// Generated from Calculator.g4 by ANTLR 4.9.2
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -9,14 +9,15 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class SuffixCalculatorParser extends Parser {
+public class CalculatorParser extends Parser {
 	static { RuntimeMetaData.checkVersion("4.9.2", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, T__3=4, Number=5, NEWLINE=6, WS=7;
+		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, Integer=8, NEWLINE=9, 
+		WS=10, COMMENT=11;
 	public static final int
 		RULE_program = 0, RULE_stat = 1, RULE_expr = 2;
 	private static String[] makeRuleNames() {
@@ -28,13 +29,14 @@ public class SuffixCalculatorParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'*'", "'/'", "'+'", "'-'"
+			null, "'*'", "'/'", "'%'", "'+'", "'-'", "'('", "')'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, null, null, "Number", "NEWLINE", "WS"
+			null, null, null, null, null, null, null, null, "Integer", "NEWLINE", 
+			"WS", "COMMENT"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -72,7 +74,7 @@ public class SuffixCalculatorParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "SuffixCalculator.g4"; }
+	public String getGrammarFileName() { return "Calculator.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -83,13 +85,13 @@ public class SuffixCalculatorParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public SuffixCalculatorParser(TokenStream input) {
+	public CalculatorParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
 	public static class ProgramContext extends ParserRuleContext {
-		public TerminalNode EOF() { return getToken(SuffixCalculatorParser.EOF, 0); }
+		public TerminalNode EOF() { return getToken(CalculatorParser.EOF, 0); }
 		public List<StatContext> stat() {
 			return getRuleContexts(StatContext.class);
 		}
@@ -102,15 +104,15 @@ public class SuffixCalculatorParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_program; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SuffixCalculatorListener ) ((SuffixCalculatorListener)listener).enterProgram(this);
+			if ( listener instanceof CalculatorListener ) ((CalculatorListener)listener).enterProgram(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SuffixCalculatorListener ) ((SuffixCalculatorListener)listener).exitProgram(this);
+			if ( listener instanceof CalculatorListener ) ((CalculatorListener)listener).exitProgram(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SuffixCalculatorVisitor ) return ((SuffixCalculatorVisitor<? extends T>)visitor).visitProgram(this);
+			if ( visitor instanceof CalculatorVisitor ) return ((CalculatorVisitor<? extends T>)visitor).visitProgram(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -125,7 +127,7 @@ public class SuffixCalculatorParser extends Parser {
 			setState(9);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (_la==Number || _la==NEWLINE) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__5) | (1L << Integer) | (1L << NEWLINE))) != 0)) {
 				{
 				{
 				setState(6);
@@ -152,7 +154,7 @@ public class SuffixCalculatorParser extends Parser {
 	}
 
 	public static class StatContext extends ParserRuleContext {
-		public TerminalNode NEWLINE() { return getToken(SuffixCalculatorParser.NEWLINE, 0); }
+		public TerminalNode NEWLINE() { return getToken(CalculatorParser.NEWLINE, 0); }
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
 		}
@@ -162,15 +164,15 @@ public class SuffixCalculatorParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_stat; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SuffixCalculatorListener ) ((SuffixCalculatorListener)listener).enterStat(this);
+			if ( listener instanceof CalculatorListener ) ((CalculatorListener)listener).enterStat(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SuffixCalculatorListener ) ((SuffixCalculatorListener)listener).exitStat(this);
+			if ( listener instanceof CalculatorListener ) ((CalculatorListener)listener).exitStat(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SuffixCalculatorVisitor ) return ((SuffixCalculatorVisitor<? extends T>)visitor).visitStat(this);
+			if ( visitor instanceof CalculatorVisitor ) return ((CalculatorVisitor<? extends T>)visitor).visitStat(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -185,7 +187,7 @@ public class SuffixCalculatorParser extends Parser {
 			setState(15);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if (_la==Number) {
+			if (_la==T__5 || _la==Integer) {
 				{
 				setState(14);
 				expr(0);
@@ -218,24 +220,7 @@ public class SuffixCalculatorParser extends Parser {
 			super.copyFrom(ctx);
 		}
 	}
-	public static class ExprNumberContext extends ExprContext {
-		public TerminalNode Number() { return getToken(SuffixCalculatorParser.Number, 0); }
-		public ExprNumberContext(ExprContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SuffixCalculatorListener ) ((SuffixCalculatorListener)listener).enterExprNumber(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SuffixCalculatorListener ) ((SuffixCalculatorListener)listener).exitExprNumber(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SuffixCalculatorVisitor ) return ((SuffixCalculatorVisitor<? extends T>)visitor).visitExprNumber(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-	public static class ExprSuffixContext extends ExprContext {
+	public static class ExprAddSubContext extends ExprContext {
 		public Token op;
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
@@ -243,18 +228,77 @@ public class SuffixCalculatorParser extends Parser {
 		public ExprContext expr(int i) {
 			return getRuleContext(ExprContext.class,i);
 		}
-		public ExprSuffixContext(ExprContext ctx) { copyFrom(ctx); }
+		public ExprAddSubContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SuffixCalculatorListener ) ((SuffixCalculatorListener)listener).enterExprSuffix(this);
+			if ( listener instanceof CalculatorListener ) ((CalculatorListener)listener).enterExprAddSub(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SuffixCalculatorListener ) ((SuffixCalculatorListener)listener).exitExprSuffix(this);
+			if ( listener instanceof CalculatorListener ) ((CalculatorListener)listener).exitExprAddSub(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SuffixCalculatorVisitor ) return ((SuffixCalculatorVisitor<? extends T>)visitor).visitExprSuffix(this);
+			if ( visitor instanceof CalculatorVisitor ) return ((CalculatorVisitor<? extends T>)visitor).visitExprAddSub(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class ExprParentContext extends ExprContext {
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public ExprParentContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CalculatorListener ) ((CalculatorListener)listener).enterExprParent(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CalculatorListener ) ((CalculatorListener)listener).exitExprParent(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CalculatorVisitor ) return ((CalculatorVisitor<? extends T>)visitor).visitExprParent(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class ExprIntegerContext extends ExprContext {
+		public TerminalNode Integer() { return getToken(CalculatorParser.Integer, 0); }
+		public ExprIntegerContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CalculatorListener ) ((CalculatorListener)listener).enterExprInteger(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CalculatorListener ) ((CalculatorListener)listener).exitExprInteger(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CalculatorVisitor ) return ((CalculatorVisitor<? extends T>)visitor).visitExprInteger(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class ExprMultDivModContext extends ExprContext {
+		public Token op;
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public ExprMultDivModContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CalculatorListener ) ((CalculatorListener)listener).enterExprMultDivMod(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CalculatorListener ) ((CalculatorListener)listener).exitExprMultDivMod(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CalculatorVisitor ) return ((CalculatorVisitor<? extends T>)visitor).visitExprMultDivMod(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -275,47 +319,95 @@ public class SuffixCalculatorParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			{
-			_localctx = new ExprNumberContext(_localctx);
-			_ctx = _localctx;
-			_prevctx = _localctx;
+			setState(25);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case Integer:
+				{
+				_localctx = new ExprIntegerContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 
-			setState(20);
-			match(Number);
+				setState(20);
+				match(Integer);
+				}
+				break;
+			case T__5:
+				{
+				_localctx = new ExprParentContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+				setState(21);
+				match(T__5);
+				setState(22);
+				expr(0);
+				setState(23);
+				match(T__6);
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(28);
+			setState(35);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					{
-					_localctx = new ExprSuffixContext(new ExprContext(_parentctx, _parentState));
-					pushNewRecursionContext(_localctx, _startState, RULE_expr);
-					setState(22);
-					if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-					setState(23);
-					expr(0);
-					setState(24);
-					((ExprSuffixContext)_localctx).op = _input.LT(1);
-					_la = _input.LA(1);
-					if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__1) | (1L << T__2) | (1L << T__3))) != 0)) ) {
-						((ExprSuffixContext)_localctx).op = (Token)_errHandler.recoverInline(this);
-					}
-					else {
-						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-						_errHandler.reportMatch(this);
-						consume();
-					}
+					setState(33);
+					_errHandler.sync(this);
+					switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
+					case 1:
+						{
+						_localctx = new ExprMultDivModContext(new ExprContext(_parentctx, _parentState));
+						pushNewRecursionContext(_localctx, _startState, RULE_expr);
+						setState(27);
+						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
+						setState(28);
+						((ExprMultDivModContext)_localctx).op = _input.LT(1);
+						_la = _input.LA(1);
+						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__1) | (1L << T__2))) != 0)) ) {
+							((ExprMultDivModContext)_localctx).op = (Token)_errHandler.recoverInline(this);
+						}
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
+							consume();
+						}
+						setState(29);
+						expr(5);
+						}
+						break;
+					case 2:
+						{
+						_localctx = new ExprAddSubContext(new ExprContext(_parentctx, _parentState));
+						pushNewRecursionContext(_localctx, _startState, RULE_expr);
+						setState(30);
+						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
+						setState(31);
+						((ExprAddSubContext)_localctx).op = _input.LT(1);
+						_la = _input.LA(1);
+						if ( !(_la==T__3 || _la==T__4) ) {
+							((ExprAddSubContext)_localctx).op = (Token)_errHandler.recoverInline(this);
+						}
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
+							consume();
+						}
+						setState(32);
+						expr(4);
+						}
+						break;
 					}
 					} 
 				}
-				setState(30);
+				setState(37);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
 			}
 			}
 		}
@@ -340,22 +432,26 @@ public class SuffixCalculatorParser extends Parser {
 	private boolean expr_sempred(ExprContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 0:
-			return precpred(_ctx, 2);
+			return precpred(_ctx, 4);
+		case 1:
+			return precpred(_ctx, 3);
 		}
 		return true;
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\t\"\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\r)\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\3\2\7\2\n\n\2\f\2\16\2\r\13\2\3\2\3\2\3\3\5\3\22\n\3\3\3\3"+
-		"\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\7\4\35\n\4\f\4\16\4 \13\4\3\4\2\3\6\5\2"+
-		"\4\6\2\3\3\2\3\6\2!\2\13\3\2\2\2\4\21\3\2\2\2\6\25\3\2\2\2\b\n\5\4\3\2"+
-		"\t\b\3\2\2\2\n\r\3\2\2\2\13\t\3\2\2\2\13\f\3\2\2\2\f\16\3\2\2\2\r\13\3"+
-		"\2\2\2\16\17\7\2\2\3\17\3\3\2\2\2\20\22\5\6\4\2\21\20\3\2\2\2\21\22\3"+
-		"\2\2\2\22\23\3\2\2\2\23\24\7\b\2\2\24\5\3\2\2\2\25\26\b\4\1\2\26\27\7"+
-		"\7\2\2\27\36\3\2\2\2\30\31\f\4\2\2\31\32\5\6\4\2\32\33\t\2\2\2\33\35\3"+
-		"\2\2\2\34\30\3\2\2\2\35 \3\2\2\2\36\34\3\2\2\2\36\37\3\2\2\2\37\7\3\2"+
-		"\2\2 \36\3\2\2\2\5\13\21\36";
+		"\3\3\4\3\4\3\4\3\4\3\4\3\4\5\4\34\n\4\3\4\3\4\3\4\3\4\3\4\3\4\7\4$\n\4"+
+		"\f\4\16\4\'\13\4\3\4\2\3\6\5\2\4\6\2\4\3\2\3\5\3\2\6\7\2*\2\13\3\2\2\2"+
+		"\4\21\3\2\2\2\6\33\3\2\2\2\b\n\5\4\3\2\t\b\3\2\2\2\n\r\3\2\2\2\13\t\3"+
+		"\2\2\2\13\f\3\2\2\2\f\16\3\2\2\2\r\13\3\2\2\2\16\17\7\2\2\3\17\3\3\2\2"+
+		"\2\20\22\5\6\4\2\21\20\3\2\2\2\21\22\3\2\2\2\22\23\3\2\2\2\23\24\7\13"+
+		"\2\2\24\5\3\2\2\2\25\26\b\4\1\2\26\34\7\n\2\2\27\30\7\b\2\2\30\31\5\6"+
+		"\4\2\31\32\7\t\2\2\32\34\3\2\2\2\33\25\3\2\2\2\33\27\3\2\2\2\34%\3\2\2"+
+		"\2\35\36\f\6\2\2\36\37\t\2\2\2\37$\5\6\4\7 !\f\5\2\2!\"\t\3\2\2\"$\5\6"+
+		"\4\6#\35\3\2\2\2# \3\2\2\2$\'\3\2\2\2%#\3\2\2\2%&\3\2\2\2&\7\3\2\2\2\'"+
+		"%\3\2\2\2\7\13\21\33#%";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
