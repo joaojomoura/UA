@@ -24,11 +24,20 @@ public class Interpreter extends CalculatorBaseVisitor<Integer> {
    }
 
    @Override public Integer visitExprParent(CalculatorParser.ExprParentContext ctx) {
-      return visit(ctx.expr()); 
+      String signal;
+      try{signal = ctx.signal.getText();}
+      catch(NullPointerException e){  signal = "+";}
+      int res = visit(ctx.expr());
+      if(signal.equals("-"))
+        res *= -1;
+      return res; 
    }
 
    @Override public Integer visitExprInteger(CalculatorParser.ExprIntegerContext ctx) {
-      return Integer.parseInt(ctx.Integer().getText());  
+      String signal; 
+      try{signal = ctx.signal.getText();}
+      catch(NullPointerException e){  signal = "+";}
+      return Integer.parseInt(ctx.getText());  
    }
 
    @Override public Integer visitExprMultDivMod(CalculatorParser.ExprMultDivModContext ctx) {

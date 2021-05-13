@@ -7,10 +7,10 @@ stat:
 	expr? NEWLINE;
 
 expr:
-	expr op = ('*' | '/' | '%') expr	#ExprMultDivMod
+ 	 expr op = ('*' | '/' | '%') expr	#ExprMultDivMod
 	|expr op = ('+' | '-') expr		#ExprAddSub
-	|Integer				#ExprInteger
-	|'('expr')'				#ExprParent;
+	|signal = ('+'|'-')? Integer		#ExprInteger
+	|signal = ('+'|'-')?'('expr')'		#ExprParent;
 
 Integer: [0-9]+;
 NEWLINE: '\r'? '\n';
