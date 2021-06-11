@@ -1,4 +1,4 @@
-grammar Calc;
+ grammar Calc;
 
 @parser::header {
 import java.util.Map;
