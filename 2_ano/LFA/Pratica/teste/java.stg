@@ -1,0 +1,16 @@
+module(name,stat) ::= << 
+public class <name> {
+	public static void main (String[]args){
+		<stats(stat)>
+	}
+}
+>>
+
+stats(stat) ::= <<
+<if(stat)><stat; separator= "\n"><endif>
+>>
+
+show(expr) ::= "System.out.println(<expr>);"
+
+
+plain(text) ::= "<text>" 

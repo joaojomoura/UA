@@ -1,0 +1,7 @@
+SHOW=1
+ID=2
+INT=3
+STRING=4
+WS=5
+ERROR=6
+'show'=1

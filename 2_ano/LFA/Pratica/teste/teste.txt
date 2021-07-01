@@ -1,0 +1,3 @@
+show 1
+show 2
+show "ola mundo"

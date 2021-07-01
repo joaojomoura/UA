@@ -1,0 +1,10 @@
+T__0=1
+PRINT=2
+ID=3
+INT=4
+STRING=5
+WS=6
+COMMENT=7
+ERROR=8
+':'=1
+'print'=2
