@@ -5,14 +5,19 @@ import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
 
 public class StrLangMain {
-   public static void main(String[] args) throws IOException {
-      if(args.length != 1)
-      {
-         System.err.println("Usage ./run filename");
-         System.exit(-1);
+   public static void main(String[] args) {
+      String s = "";
+      try{
+        if(args.length != 1)
+          System.out.println("Usage: ./run <name-of-file>");
+        else
+          s = args[0];
+      }
+      catch(Exception e){
+        System.err.println("File doesn't exist");
       }
       try {
-         Scanner sc = new Scanner( new FileInputStream(args[args.length-1]));
+         Scanner sc = new Scanner(new FileInputStream(s));
          String lineText = null;
          int numLine = 1;
          if (sc.hasNextLine())
@@ -50,6 +55,11 @@ public class StrLangMain {
       catch(RecognitionException e) {
          e.printStackTrace();
          System.exit(1);
+      }
+      catch(IOException e){
+        e.printStackTrace();
+        System.out.println("File doesn't exist");
+        System.exit(2);
       }
    }
 }

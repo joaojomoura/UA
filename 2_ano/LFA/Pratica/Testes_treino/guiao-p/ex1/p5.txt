@@ -1,3 +1,5 @@
 print "Bom dia"
 t1: "Miguel"
 print t1
+t2: "ola " + t1
+print t2

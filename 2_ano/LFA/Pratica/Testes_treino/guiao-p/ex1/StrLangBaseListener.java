@@ -75,6 +75,42 @@ public class StrLangBaseListener implements StrLangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterExprSub(StrLangParser.ExprSubContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExprSub(StrLangParser.ExprSubContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExprRead(StrLangParser.ExprReadContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExprRead(StrLangParser.ExprReadContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExprAdd(StrLangParser.ExprAddContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExprAdd(StrLangParser.ExprAddContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterExprString(StrLangParser.ExprStringContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -87,6 +123,30 @@ public class StrLangBaseListener implements StrLangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterExprTrim(StrLangParser.ExprTrimContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExprTrim(StrLangParser.ExprTrimContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExprParent(StrLangParser.ExprParentContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExprParent(StrLangParser.ExprParentContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterExprID(StrLangParser.ExprIDContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -94,6 +154,18 @@ public class StrLangBaseListener implements StrLangListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitExprID(StrLangParser.ExprIDContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExprSubst(StrLangParser.ExprSubstContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExprSubst(StrLangParser.ExprSubstContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

@@ -16,7 +16,8 @@ public class StrLangParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, PRINT=2, ID=3, INT=4, STRING=5, WS=6, COMMENT=7, ERROR=8;
+		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, PRINT=7, INPUT=8, TRIM=9, 
+		ID=10, STRING=11, WS=12, COMMENT=13, ERROR=14;
 	public static final int
 		RULE_main = 0, RULE_stat = 1, RULE_print = 2, RULE_assign = 3, RULE_expr = 4;
 	private static String[] makeRuleNames() {
@@ -28,13 +29,15 @@ public class StrLangParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "':'", "'print'"
+			null, "':'", "'('", "')'", "'+'", "'-'", "'/'", "'print'", "'input'", 
+			"'trim'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, "PRINT", "ID", "INT", "STRING", "WS", "COMMENT", "ERROR"
+			null, null, null, null, null, null, null, "PRINT", "INPUT", "TRIM", "ID", 
+			"STRING", "WS", "COMMENT", "ERROR"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -272,7 +275,7 @@ public class StrLangParser extends Parser {
 			setState(22);
 			match(PRINT);
 			setState(23);
-			expr();
+			expr(0);
 			}
 		}
 		catch (RecognitionException re) {
@@ -321,7 +324,7 @@ public class StrLangParser extends Parser {
 			setState(26);
 			match(T__0);
 			setState(27);
-			expr();
+			expr(0);
 			}
 		}
 		catch (RecognitionException re) {
@@ -346,6 +349,74 @@ public class StrLangParser extends Parser {
 			super.copyFrom(ctx);
 		}
 	}
+	public static class ExprSubContext extends ExprContext {
+		public ExprContext op1;
+		public ExprContext op2;
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public ExprSubContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof StrLangListener ) ((StrLangListener)listener).enterExprSub(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof StrLangListener ) ((StrLangListener)listener).exitExprSub(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof StrLangVisitor ) return ((StrLangVisitor<? extends T>)visitor).visitExprSub(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class ExprReadContext extends ExprContext {
+		public TerminalNode INPUT() { return getToken(StrLangParser.INPUT, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public ExprReadContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof StrLangListener ) ((StrLangListener)listener).enterExprRead(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof StrLangListener ) ((StrLangListener)listener).exitExprRead(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof StrLangVisitor ) return ((StrLangVisitor<? extends T>)visitor).visitExprRead(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class ExprAddContext extends ExprContext {
+		public ExprContext op1;
+		public ExprContext op2;
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public ExprAddContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof StrLangListener ) ((StrLangListener)listener).enterExprAdd(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof StrLangListener ) ((StrLangListener)listener).exitExprAdd(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof StrLangVisitor ) return ((StrLangVisitor<? extends T>)visitor).visitExprAdd(this);
+			else return visitor.visitChildren(this);
+		}
+	}
 	public static class ExprStringContext extends ExprContext {
 		public TerminalNode STRING() { return getToken(StrLangParser.STRING, 0); }
 		public ExprStringContext(ExprContext ctx) { copyFrom(ctx); }
@@ -360,6 +431,45 @@ public class StrLangParser extends Parser {
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof StrLangVisitor ) return ((StrLangVisitor<? extends T>)visitor).visitExprString(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class ExprTrimContext extends ExprContext {
+		public TerminalNode TRIM() { return getToken(StrLangParser.TRIM, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public ExprTrimContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof StrLangListener ) ((StrLangListener)listener).enterExprTrim(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof StrLangListener ) ((StrLangListener)listener).exitExprTrim(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof StrLangVisitor ) return ((StrLangVisitor<? extends T>)visitor).visitExprTrim(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class ExprParentContext extends ExprContext {
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public ExprParentContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof StrLangListener ) ((StrLangListener)listener).enterExprParent(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof StrLangListener ) ((StrLangListener)listener).exitExprParent(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof StrLangVisitor ) return ((StrLangVisitor<? extends T>)visitor).visitExprParent(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -380,32 +490,169 @@ public class StrLangParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
+	public static class ExprSubstContext extends ExprContext {
+		public List<ExprContext> expr() {
+			return getRuleContexts(ExprContext.class);
+		}
+		public ExprContext expr(int i) {
+			return getRuleContext(ExprContext.class,i);
+		}
+		public ExprSubstContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof StrLangListener ) ((StrLangListener)listener).enterExprSubst(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof StrLangListener ) ((StrLangListener)listener).exitExprSubst(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof StrLangVisitor ) return ((StrLangVisitor<? extends T>)visitor).visitExprSubst(this);
+			else return visitor.visitChildren(this);
+		}
+	}
 
 	public final ExprContext expr() throws RecognitionException {
-		ExprContext _localctx = new ExprContext(_ctx, getState());
-		enterRule(_localctx, 8, RULE_expr);
+		return expr(0);
+	}
+
+	private ExprContext expr(int _p) throws RecognitionException {
+		ParserRuleContext _parentctx = _ctx;
+		int _parentState = getState();
+		ExprContext _localctx = new ExprContext(_ctx, _parentState);
+		ExprContext _prevctx = _localctx;
+		int _startState = 8;
+		enterRecursionRule(_localctx, 8, RULE_expr, _p);
 		try {
-			setState(31);
+			int _alt;
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(43);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
-			case STRING:
-				_localctx = new ExprStringContext(_localctx);
-				enterOuterAlt(_localctx, 1);
+			case INPUT:
 				{
-				setState(29);
+				_localctx = new ExprReadContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+
+				setState(30);
+				match(INPUT);
+				setState(31);
+				match(T__1);
+				setState(32);
+				expr(0);
+				setState(33);
+				match(T__2);
+				}
+				break;
+			case TRIM:
+				{
+				_localctx = new ExprTrimContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+				setState(35);
+				match(TRIM);
+				setState(36);
+				expr(5);
+				}
+				break;
+			case T__1:
+				{
+				_localctx = new ExprParentContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+				setState(37);
+				match(T__1);
+				setState(38);
+				expr(0);
+				setState(39);
+				match(T__2);
+				}
+				break;
+			case STRING:
+				{
+				_localctx = new ExprStringContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+				setState(41);
 				match(STRING);
 				}
 				break;
 			case ID:
-				_localctx = new ExprIDContext(_localctx);
-				enterOuterAlt(_localctx, 2);
 				{
-				setState(30);
+				_localctx = new ExprIDContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+				setState(42);
 				match(ID);
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
+			}
+			_ctx.stop = _input.LT(-1);
+			setState(59);
+			_errHandler.sync(this);
+			_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
+			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
+				if ( _alt==1 ) {
+					if ( _parseListeners!=null ) triggerExitRuleEvent();
+					_prevctx = _localctx;
+					{
+					setState(57);
+					_errHandler.sync(this);
+					switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
+					case 1:
+						{
+						_localctx = new ExprAddContext(new ExprContext(_parentctx, _parentState));
+						((ExprAddContext)_localctx).op1 = _prevctx;
+						pushNewRecursionContext(_localctx, _startState, RULE_expr);
+						setState(45);
+						if (!(precpred(_ctx, 7))) throw new FailedPredicateException(this, "precpred(_ctx, 7)");
+						setState(46);
+						match(T__3);
+						setState(47);
+						((ExprAddContext)_localctx).op2 = expr(8);
+						}
+						break;
+					case 2:
+						{
+						_localctx = new ExprSubContext(new ExprContext(_parentctx, _parentState));
+						((ExprSubContext)_localctx).op1 = _prevctx;
+						pushNewRecursionContext(_localctx, _startState, RULE_expr);
+						setState(48);
+						if (!(precpred(_ctx, 6))) throw new FailedPredicateException(this, "precpred(_ctx, 6)");
+						setState(49);
+						match(T__4);
+						setState(50);
+						((ExprSubContext)_localctx).op2 = expr(7);
+						}
+						break;
+					case 3:
+						{
+						_localctx = new ExprSubstContext(new ExprContext(_parentctx, _parentState));
+						pushNewRecursionContext(_localctx, _startState, RULE_expr);
+						setState(51);
+						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
+						setState(52);
+						match(T__5);
+						setState(53);
+						expr(0);
+						setState(54);
+						match(T__5);
+						setState(55);
+						expr(5);
+						}
+						break;
+					}
+					} 
+				}
+				setState(61);
+				_errHandler.sync(this);
+				_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -414,22 +661,48 @@ public class StrLangParser extends Parser {
 			_errHandler.recover(this, re);
 		}
 		finally {
-			exitRule();
+			unrollRecursionContexts(_parentctx);
 		}
 		return _localctx;
 	}
 
+	public boolean sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
+		switch (ruleIndex) {
+		case 4:
+			return expr_sempred((ExprContext)_localctx, predIndex);
+		}
+		return true;
+	}
+	private boolean expr_sempred(ExprContext _localctx, int predIndex) {
+		switch (predIndex) {
+		case 0:
+			return precpred(_ctx, 7);
+		case 1:
+			return precpred(_ctx, 6);
+		case 2:
+			return precpred(_ctx, 4);
+		}
+		return true;
+	}
+
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\n$\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\20A\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\3\2\7\2\16\n\2\f\2\16\2\21\13\2\3\2\3\2\3\3"+
-		"\3\3\5\3\27\n\3\3\4\3\4\3\4\3\5\3\5\3\5\3\5\3\6\3\6\5\6\"\n\6\3\6\2\2"+
-		"\7\2\4\6\b\n\2\2\2!\2\17\3\2\2\2\4\26\3\2\2\2\6\30\3\2\2\2\b\33\3\2\2"+
-		"\2\n!\3\2\2\2\f\16\5\4\3\2\r\f\3\2\2\2\16\21\3\2\2\2\17\r\3\2\2\2\17\20"+
-		"\3\2\2\2\20\22\3\2\2\2\21\17\3\2\2\2\22\23\7\2\2\3\23\3\3\2\2\2\24\27"+
-		"\5\6\4\2\25\27\5\b\5\2\26\24\3\2\2\2\26\25\3\2\2\2\27\5\3\2\2\2\30\31"+
-		"\7\4\2\2\31\32\5\n\6\2\32\7\3\2\2\2\33\34\7\5\2\2\34\35\7\3\2\2\35\36"+
-		"\5\n\6\2\36\t\3\2\2\2\37\"\7\7\2\2 \"\7\5\2\2!\37\3\2\2\2! \3\2\2\2\""+
-		"\13\3\2\2\2\5\17\26!";
+		"\3\3\5\3\27\n\3\3\4\3\4\3\4\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\6\3"+
+		"\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\5\6.\n\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3"+
+		"\6\3\6\3\6\3\6\3\6\7\6<\n\6\f\6\16\6?\13\6\3\6\2\3\n\7\2\4\6\b\n\2\2\2"+
+		"D\2\17\3\2\2\2\4\26\3\2\2\2\6\30\3\2\2\2\b\33\3\2\2\2\n-\3\2\2\2\f\16"+
+		"\5\4\3\2\r\f\3\2\2\2\16\21\3\2\2\2\17\r\3\2\2\2\17\20\3\2\2\2\20\22\3"+
+		"\2\2\2\21\17\3\2\2\2\22\23\7\2\2\3\23\3\3\2\2\2\24\27\5\6\4\2\25\27\5"+
+		"\b\5\2\26\24\3\2\2\2\26\25\3\2\2\2\27\5\3\2\2\2\30\31\7\t\2\2\31\32\5"+
+		"\n\6\2\32\7\3\2\2\2\33\34\7\f\2\2\34\35\7\3\2\2\35\36\5\n\6\2\36\t\3\2"+
+		"\2\2\37 \b\6\1\2 !\7\n\2\2!\"\7\4\2\2\"#\5\n\6\2#$\7\5\2\2$.\3\2\2\2%"+
+		"&\7\13\2\2&.\5\n\6\7\'(\7\4\2\2()\5\n\6\2)*\7\5\2\2*.\3\2\2\2+.\7\r\2"+
+		"\2,.\7\f\2\2-\37\3\2\2\2-%\3\2\2\2-\'\3\2\2\2-+\3\2\2\2-,\3\2\2\2.=\3"+
+		"\2\2\2/\60\f\t\2\2\60\61\7\6\2\2\61<\5\n\6\n\62\63\f\b\2\2\63\64\7\7\2"+
+		"\2\64<\5\n\6\t\65\66\f\6\2\2\66\67\7\b\2\2\678\5\n\6\289\7\b\2\29:\5\n"+
+		"\6\7:<\3\2\2\2;/\3\2\2\2;\62\3\2\2\2;\65\3\2\2\2<?\3\2\2\2=;\3\2\2\2="+
+		">\3\2\2\2>\13\3\2\2\2?=\3\2\2\2\7\17\26-;=";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
