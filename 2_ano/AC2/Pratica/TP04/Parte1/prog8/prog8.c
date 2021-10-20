@@ -6,7 +6,7 @@ int main(void){
                                     0x7D, 0x07, 0x7F, 0x6F, 0x77, 0x7C, 0x39, 0x5E,
                                     0x79, 0x71};
     TRISD = TRISD & 0xFF9F;
-    TRISB = (TRISB & 0xFFF0) | 0x000F;       // RB3 a 4 = 1 (input)
+    TRISB = (TRISB & 0xFFF0) | 0x000F;       // RB0 a 3 = 1 (input)
     TRISB = TRISB & 0x80FF;                 // RB14 a 8 = 0 (output)
     
     LATB = LATB & 0x00FF;                   // first config

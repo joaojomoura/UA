@@ -91,7 +91,7 @@ enddo:
 
 
 
-#Mapa de registos - wai(int ts)
+#Mapa de registos - wait(int ts)
 # a0 = ts
 # t0 = i
 wait:

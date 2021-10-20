@@ -1,0 +1,12 @@
+GAS LISTING prog2.s 			page 1
+
+
+DEFINED SYMBOLS
+             prog2.s:1      *ABS*:0000000000000002 get_char
+             prog2.s:2      *ABS*:0000000000000003 put_char
+             prog2.s:7      .text:0000000000000000 main
+             prog2.s:9      .text:0000000000000000 do
+             prog2.s:14     .text:000000000000000c if
+             prog2.s:19     .text:0000000000000024 endif
+
+NO UNDEFINED SYMBOLS
