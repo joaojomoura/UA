@@ -1,0 +1,14 @@
+#!/bin/bash
+
+antlr4-build 
+javac BdeXMain.java 
+
+echo "Enter filename"
+read file
+if [[ ( -f "$file" && $file == *.bdex ) ]]; then
+	echo "File exists"
+	rm -f Program.java
+	java BdeXMain $file
+else
+	echo "File does not exist or doesn't match *.bdex file"
+fi

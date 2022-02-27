@@ -1,0 +1,10 @@
+Table Luffy->create{
+	"anime">>text;
+	"gatinhos">>text;
+	};
+
+insert into Luffy >> "OnePiece"|"Miau";
+
+show Luffy; 
+
+save Luffy to "monkey.table";

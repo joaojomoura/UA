@@ -1,0 +1,59 @@
+int a -> 45;
+
+double b -> 15.55;
+
+text t -> "hey";
+
+Table musica -> create{
+	"Autores" >> int;
+	"Album" >> double;
+	"Ano" >> int;
+	"Vendas" >> int;
+	"Escrito por" >> text;
+};
+
+Table musica2 -> create{
+	"Autores" >> int;
+	"Album" >> double;
+	"Ano" >> int;
+	"Vendas" >> int;
+	"Escrito por" >> text;
+};
+
+Table musica3 -> join musica to musica2;
+
+Table musica4 -> extract from musica3 >> "Autores"|"Ano";
+
+musica4 -> extract from musica3 >> "Autores"|"Ano" where "Ano">2+2;
+
+column c1 -> create column >> text;
+
+insert into musica in "Ano" >> 8;
+
+insert into musica >> a||8|9|"me";
+
+insert into musica >> "Ano":87|"Vendas":a;
+
+insert c1 >> "Genre" into musica;
+
+insert "hello" into c1;
+
+remove "Ano" from musica4;
+
+remove from musica4 where "Vendas" > 500;
+
+Table wow -> read from "hello";
+
+save wow to "goodbye";
+
+show musica;
+
+a -> read int;
+
+b -> read double;
+
+modify "Ano":2000|"Vendas":450 in musica3 where "Ano" < 1999;
+
+modify "Ano"|4 in musica3 >> 5;
+
+modify 5 in c1 >> a;

@@ -1,0 +1,6 @@
+table (Livros >> text, Piso >> int, Lugar >> text, coiso >> text)
+{
+    "ola", 2, "3B", "coiso1";
+    "hello", 3, "4B", "coiso2";
+    "deu", 5, "1", "coiso3";  
+}  

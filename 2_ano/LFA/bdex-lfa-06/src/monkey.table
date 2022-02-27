@@ -1,0 +1,4 @@
+table (anime >> text, gatinhos >> text)
+{
+    "OnePiece", "Miau";  
+}  

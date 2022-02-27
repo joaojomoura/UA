@@ -1,0 +1,54 @@
+##declare 3 variables properly
+int a -> 45;
+
+double b -> 15.55;
+
+text t -> "hey";
+
+Table h;
+
+##declaring an already existing variable
+text h;
+
+##assigning a double to a text variable
+t -> b;
+
+##setting a double to an int varibale
+a -> 45.5;
+
+##same as before
+b -> 5 + 5.5;
+
+##perfecly valid
+b -> 5+55.5;
+
+##attempting to read an int to a text variable
+t ->read int;
+
+##duplicate column name t + invalid variable a as a column name
+Table biblioteca -> create {
+	"Piso" >> text;
+	"Lugar" >> int;
+	"Numero Copias" >> text;
+	t >> int;
+    t >> int;
+    a >> text;
+};
+
+##using duplicate column names in conditions
+biblioteca -> extract from biblioteca >> "Ano" where "Genre" == "Metal"|"Genre" == "Classic";
+
+##using numeric operator on non numeric values
+text hd -> "a" + "a";
+
+##variable metal wasn't declared
+biblioteca -> join join biblioteca to biblioteca to metal;
+
+##creating a column properly
+column type -> create column >> text;
+
+##can't insert a column as a single value
+insert into biblioteca >> "hey"|3|2+2||type;
+
+##this is how you insert a column into a table
+insert type >> "Column Name!" into biblioteca;

@@ -1,0 +1,130 @@
+main(stat) ::= <<
+import Shared.*;
+import Secondary_language.*;
+import java.util.*;
+import java.io.FileNotFoundException;
+
+public class Program {
+   @SuppressWarnings("unchecked")
+   public static void main(String[] args) throws FileNotFoundException
+   {
+      CScanner scanner = new CScanner(System.in);
+      
+      <stats(stat)>;
+
+      scanner.close();
+   }
+}
+>>
+
+tableCreate(colDeclr) ::= <<
+new Table(new KeyValuePair[] {<comma(colDeclr)>})
+>>
+
+columnCreate(type, colType) ::= <<
+new Column\<<type>\>(<colType>)
+>>
+
+colDeclr(name, type) ::= <<
+new KeyValuePair\<String, Column.Type>(<name>, <type>)
+>>
+
+comma(stat) ::= <<
+<if(stat)><stat; separator=","><endif>
+>>
+
+stats(stat) ::= <<
+<if(stat)><stat; separator=";\n"><endif>
+>>
+
+declaration(type, assignment) ::= <<
+<type> <assignment>
+>>
+
+assignment(name, expression) ::= <<
+<name> = <expression>
+>>
+
+plain(text) ::= <<
+<text>
+>>
+
+operation(op1, opType, op2) ::= <<
+<op1> <opType> <op2>
+>>
+
+print(expression) ::= <<
+System.out.println(<expression>)
+>>
+
+parentExpression(expression) ::= <<
+(<expression>)
+>>
+
+signExpression(sign, expression)::= <<
+<sign><expression>
+>>
+
+save(expression, filename) ::= <<
+TableReaderWriter.SaveTable(<expression>, <filename>)
+>>
+
+readTable(filename) ::= <<
+TableReaderWriter.ReadTable(<filename>)
+>>
+
+readScanner(type) ::= <<
+scanner.next<type>()
+>>
+
+join(t1,t2) ::= <<
+<t1>.Join(<t2>)
+>>
+
+extract(table, cols, conditions) ::= <<
+<table>.Extract(new String[]{<comma(cols)>}, new Condition[]{<comma(conditions)>})
+>>
+
+condition(colName, op, value) ::= <<
+new Condition(<colName>, "<op>", <value>)
+>>
+
+remove(table, conditions) ::= <<
+<table>.Remove(new Condition[]{<comma(conditions)>})
+>>
+
+removeCol(table, col) ::= <<
+<table>.RemoveColumn(<col>)
+>>
+
+pow(e1,e2) ::= <<
+Math.pow(<e1>, <e2>);
+>>
+
+insertStat(colName, value) ::= <<
+new KeyValuePair\<String, Object>(<colName>, <value>)
+>>
+
+modify(table, insertStats, conditions) ::= <<
+<table>.Modify(new KeyValuePair[]{<comma(insertStats)>}, new Condition[]{<comma(conditions)>})
+>>
+
+modifyPos(table, colName, position, value) ::= <<
+<table>.ModifyColValue(<colName>, <position>, <value>)
+>>
+
+modifyColPos(column, pos, value) ::= <<
+<column>.Replace(<pos>, <value>)
+>>
+
+insert(table, type, values) ::= <<
+<table>.InsertLine(new <type>[]{<comma(values)>})
+>>
+
+insertCol(table, colName, column) ::= <<
+<table>.AddColumn(<colName>, <column>)
+>>
+
+colInsert(column, value) ::= <<
+<column>.Insert(<value>);
+>>

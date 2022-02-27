@@ -1,0 +1,5 @@
+#!/bin/bash
+
+antlr4-clean
+rm -fv Program.java
+rm -fv *.table

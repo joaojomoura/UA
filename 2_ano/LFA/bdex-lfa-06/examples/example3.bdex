@@ -1,0 +1,28 @@
+Table Alunos -> create{
+	"AC1" >> double;
+	"MEC" >> double;
+	"MPEI">> double;
+	"Prog3">>double;
+};
+
+insert into Alunos >>  (12.5+17.5+15.0)/3.0 | 13.1 | 14.2 | 17.3;
+insert into Alunos >> 8.3 | 10.3 | 7.2 | 12.2;
+insert into Alunos >>  16.2 | 14.9 | 15.9 | 17.0;
+
+Table Alunos2 -> read from "../examples/AlunosTable.table";
+
+Table AlunosActualizada -> join Alunos2 to Alunos;
+
+insert into AlunosActualizada >> "Alunos":"Manuel"|"MPEI":14.7;
+
+modify "LFA":18.4 in AlunosActualizada where "Alunos"=="Ze";
+
+save AlunosActualizada to "Notas.table";
+
+show "Tabela alunos";
+show AlunosActualizada;
+
+show "Alunos que passaram a AlgC";
+remove from AlunosActualizada where "AlgC" < 10.0;
+
+show AlunosActualizada;

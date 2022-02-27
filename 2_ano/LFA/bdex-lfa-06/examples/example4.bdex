@@ -1,0 +1,44 @@
+Table biblioteca -> create {
+	"Livros" >> text;
+	"Piso" >> int;
+	"Lugar" >> text;
+	"NCopias" >> int;
+};
+
+show "Criacao de uma tabela com inventario de uma biblioteca, insirir 3 livros";
+show "Insira por ordem : Titulo | Piso | Lugar | Copias (Use Enter em cada item)";
+show "Livro 1";
+insert into biblioteca >> (read text)|(read int)|(read text)|(read int);
+show "Livro 2";
+insert into biblioteca >> (read text)|(read int)|(read text)|(read int);
+show "Livro 3";
+insert into biblioteca >> (read text)|(read int)|(read text)|(read int);
+
+column type -> create column >> text;
+
+show "Inserir uma nova coluna";
+show "Que nome quer dar a nova coluna?";
+text title ->  read text;
+
+show biblioteca;
+show title;
+
+
+show "Insira 3 elementos na sua nova coluna";
+show "1: ";
+insert (read text) into type;
+show "2: ";
+insert (read text) into type;
+show "3: ";
+insert (read text) into type;
+
+insert type >> title into biblioteca;
+
+show biblioteca;
+
+remove "NCopias" from biblioteca;
+
+show biblioteca;
+
+show "Nome do ficheiro a guardar: ";
+save biblioteca to (read text);

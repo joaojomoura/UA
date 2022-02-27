@@ -1,0 +1,30 @@
+table(header, body)::= <<
+<header>
+<body>
+>>
+
+table_body(line)::= <<
+{
+    <new_line_separator(line)>  
+}  
+>>
+
+table_header(col_declr) ::= <<
+table (<comma_separator(col_declr)>)
+>>
+
+col_declr(name, type) ::= <<
+<name> >\> <type>
+>>
+
+body_line(col) ::= <<
+<comma_separator(col)>;
+>>
+
+comma_separator(stat) ::= <<
+<if(stat)><stat;separator=", "><endif>
+>>
+
+new_line_separator(stat) ::= <<
+<if(stat)><stat;separator="\n"><endif>
+>>

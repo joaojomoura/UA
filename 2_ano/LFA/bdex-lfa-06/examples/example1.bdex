@@ -1,0 +1,39 @@
+##create table
+Table music -> create {
+	"Album" >> text;
+	"Year" >> int;
+	"Genre" >> text;
+	"Sales" >> int;
+	"Rating" >> double;
+	"Author" >> text;
+};
+
+##insert items
+insert into music >> "the trooper"|2015|"Rock"|5000|4.8|"Iron Maiden";
+insert into music >> "Hozier"|2014|"Pop"|1200|3.5|"Hozier";
+insert into music >> "Sacrament"|2018|"Metal"|2500|4.9|"Metal";
+insert into music >> "Arise"|1991|"Metal"|5000|4.8|"Sepultura";
+
+##extract items with metal
+Table metal -> extract from music >> "Album" | "Ano" | "Author" where "Genre" == "Metal";
+
+## create metal column for types of metal
+column Metal_genre -> create column >> text;
+
+insert "Power" into Metal_genre;
+
+insert "Death" into Metal_genre;
+
+text metalg -> "Metal Genre";
+
+insert Metal_genre >> metalg into metal;
+
+##show tables
+show music;
+
+show  metal;
+
+##save 
+save music to "Music.table";
+
+save metal to "Metal.table";
