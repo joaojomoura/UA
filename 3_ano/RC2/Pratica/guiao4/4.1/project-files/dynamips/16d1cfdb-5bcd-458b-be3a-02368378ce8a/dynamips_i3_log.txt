@@ -1,0 +1,53 @@
+Jun 19 15:54:55.121 HYPERVISOR: Release 0.2.17-amd64/Darwin (tag 2017072410)
+Jun 19 15:54:55.122 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 51553.
+Jun 19 15:54:55.132 HYPERVISOR: exec_cmd: hypervisor version 
+Jun 19 15:54:55.132 HYPERVISOR: exec_cmd: hypervisor working_dir /Users/slowbro/Desktop/UA/UA/3_ano/RC2/Pratica/guiao4/4.1/project-files/dynamips 
+Jun 19 15:54:55.133 GENERAL: working_dir=/Users/slowbro/Desktop/UA/UA/3_ano/RC2/Pratica/guiao4/4.1/project-files/dynamips
+Jun 19 15:54:55.133 HYPERVISOR: exec_cmd: hypervisor working_dir /Users/slowbro/Desktop/UA/UA/3_ano/RC2/Pratica/guiao4/4.1/project-files/dynamips/4b8ee43d-e96a-4614-972c-835563280379 
+Jun 19 15:54:55.133 GENERAL: working_dir=/Users/slowbro/Desktop/UA/UA/3_ano/RC2/Pratica/guiao4/4.1/project-files/dynamips/4b8ee43d-e96a-4614-972c-835563280379
+Jun 19 15:54:55.133 HYPERVISOR: exec_cmd: vm create R2 2 c7200 
+Jun 19 15:54:55.133 VM: VM R2 created.
+Jun 19 15:54:55.134 HYPERVISOR: exec_cmd: vm set_con_tcp_port R2 5005 
+Jun 19 15:54:55.134 HYPERVISOR: exec_cmd: c7200 get_mac_addr R2 
+Jun 19 15:54:55.134 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 19 15:54:55.134 HYPERVISOR: exec_cmd: vm slot_add_binding R2 0 0 C7200-IO-FE 
+Jun 19 15:54:55.135 HYPERVISOR: exec_cmd: vm set_disk0 R2 0 
+Jun 19 15:54:55.135 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 19 15:54:55.135 HYPERVISOR: exec_cmd: vm set_idle_pc R2 0x60608040 
+Jun 19 15:54:55.136 HYPERVISOR: exec_cmd: vm set_ios R2 /Users/slowbro/GNS3/images/IOS/c7200-adventerprisek9-mz.151-4.M2.image 
+Jun 19 15:54:55.136 HYPERVISOR: exec_cmd: c7200 set_mac_addr R2 ca02.11eb.0000 
+Jun 19 15:54:55.137 HYPERVISOR: exec_cmd: vm set_nvram R2 512 
+Jun 19 15:54:55.137 HYPERVISOR: exec_cmd: vm set_ram R2 512 
+Jun 19 15:54:55.137 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 19 15:54:55.137 HYPERVISOR: exec_cmd: vm slot_remove_binding R2 0 0 
+Jun 19 15:54:55.138 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 19 15:54:55.138 HYPERVISOR: exec_cmd: vm slot_add_binding R2 0 0 C7200-IO-2FE 
+Jun 19 15:54:55.138 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 19 15:54:55.138 HYPERVISOR: exec_cmd: vm slot_add_binding R2 1 0 PA-2FE-TX 
+Jun 19 15:54:55.889 HYPERVISOR: exec_cmd: nio create_udp udp-a2c1d04b-54f4-4ebe-9c61-b4968f6d02f3 10016 127.0.0.1 10017 
+Jun 19 15:54:56.107 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R2 0 0 udp-a2c1d04b-54f4-4ebe-9c61-b4968f6d02f3 
+Jun 19 15:54:56.107 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 19 15:54:56.143 HYPERVISOR: exec_cmd: nio create_udp udp-d1e0f29b-dac4-4b39-98f6-8bda287bf29e 10020 127.0.0.1 10021 
+Jun 19 15:54:56.144 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R2 0 1 udp-d1e0f29b-dac4-4b39-98f6-8bda287bf29e 
+Jun 19 15:54:56.145 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 19 15:56:09.440 HYPERVISOR: exec_cmd: vm set_ghost_status R2 2 
+Jun 19 15:56:09.441 HYPERVISOR: exec_cmd: vm set_ghost_file R2 /Users/slowbro/Desktop/UA/UA/3_ano/RC2/Pratica/guiao4/4.1/project-files/dynamips/c7200-adventerprisek9-mz.151-4.M2.image-512.ghost 
+Jun 19 15:56:09.441 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 19 15:56:09.441 HYPERVISOR: exec_cmd: vm set_config R2 configs/i2_startup-config.cfg configs/i2_private-config.cfg 
+Jun 19 15:56:09.442 HYPERVISOR: exec_cmd: vm start R2 
+Jun 19 15:56:39.694 HYPERVISOR: exec_cmd: vm extract_config R2 
+Jun 19 16:09:39.724 HYPERVISOR: exec_cmd: vm extract_config R2 
+Jun 19 16:14:39.737 HYPERVISOR: exec_cmd: vm extract_config R2 
+Jun 19 16:27:06.191 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 19 16:27:06.191 HYPERVISOR: exec_cmd: vm stop R2 
+Jun 19 16:27:06.281 VM: VM R2 shutdown.
+Jun 19 16:27:06.282 HYPERVISOR: exec_cmd: vm extract_config R2 
+Jun 19 16:27:31.932 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 19 16:27:31.932 HYPERVISOR: exec_cmd: vm extract_config R2 
+Jun 19 16:27:32.131 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 19 16:27:32.132 HYPERVISOR: exec_cmd: vm extract_config R2 
+Jun 19 16:27:32.133 HYPERVISOR: exec_cmd: vm delete R2 
+Jun 19 16:27:32.133 VM: VM R2 destroyed.
+Jun 19 16:27:32.133 HYPERVISOR: exec_cmd: hypervisor stop 
+Jun 19 16:27:32.312 HYPERVISOR: Stopped.
+Jun 19 16:27:32.312 GENERAL: reset done.
